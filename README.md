@@ -24,6 +24,7 @@ chromeFlags | Array of Strings | ["--disable-gpu","--headless"] | flags to start
 profiles | Array of Objects | 4 different display sizes | DeviceMetrics to use
 delay | Number | 1000 | time after rendering to wait in ms 
 timeout | Number | 10000 | timeout in ms
+minify | Boolean | true | should not significant whitespace be omitted
 save | String | - | Path where to save output
 hash | Boolean | true | only with save - name of uncritical stylesheet is hashed
 compress | Boolean | true | only with save - an additional compressed stylesheet is given out
