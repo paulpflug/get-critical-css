@@ -5,7 +5,7 @@ Uses chrome headless
 
 ### Install
 ```sh
-npm install --save get-critical-csss
+npm install --save get-critical-css
 ```
 
 ### Usage
