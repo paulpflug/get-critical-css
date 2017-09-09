@@ -22,6 +22,8 @@ html | String | - | Provide html
 stylesheets | String or Function | - | filter used stylesheets
 chromeFlags | Array of Strings | ["--disable-gpu","--headless"] | flags to start chrome with
 profiles | Array of Objects | 4 different display sizes | DeviceMetrics to use
+delay | Number | 1000 | time after rendering to wait in ms 
+timeout | Number | 10000 | timeout in ms
 save | String | - | Path where to save output
 hash | Boolean | true | only with save - name of uncritical stylesheet is hashed
 compress | Boolean | true | only with save - an additional compressed stylesheet is given out

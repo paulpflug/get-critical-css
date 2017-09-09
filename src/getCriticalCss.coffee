@@ -43,7 +43,7 @@ module.exports = (opts) =>
       await Page.setDocumentContent frameId: frameId, html: html
       setTimeout (=>
         reject() unless i >= stylecount
-      ), 10000
+      ), opts.timeout or 10000
     filterStylesheets = =>
       if (filter = opts.stylesheets)?
         if typeof filter == "function"
@@ -62,7 +62,7 @@ module.exports = (opts) =>
         filteredStylesheets = filteredStylesheets.concat allStylesheets
       allStylesheets = []
     if opts.html
-      htmls = [opts.html] unless Array.isArray(opts.html)
+      htmls = if Array.isArray(opts.html) then opts.html else [opts.html]
       for html in htmls
         await setHtml(html).then filterStylesheets
 
@@ -71,6 +71,7 @@ module.exports = (opts) =>
       coverage: coverage
       CSS: CSS
       styleSheetIds: filteredStylesheets.map (stylesheet) => stylesheet.styleSheetId
+      minify: opts.minify
   catch e
     console.log e
 
@@ -103,7 +104,7 @@ module.exports = (opts) =>
       catch
         zlib = require "zlib"
       writers.push new Promise((resolve, reject) =>
-        zopfli.gzip new Buffer(uncriticalCSS), (err, result) =>
+        zlib.gzip new Buffer(uncriticalCSS), (err, result) =>
           return reject(err) if err
           resolve(result)
         ).then (result) => write hashed+".gz", result
