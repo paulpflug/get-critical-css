@@ -1,0 +1,5 @@
+--compilers coffee:coffeescript/register
+
+--timeout 10000
+
+test/getCriticalCss.coffee
