@@ -2,5 +2,6 @@
 .vscode
 npm-debug.log
 node_modules
-*.js
+lib
 shrinkwrap.yaml
+app_build

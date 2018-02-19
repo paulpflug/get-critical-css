@@ -1,0 +1,24 @@
+body {
+      height: 20px
+    }
+
+.index {
+  color: black
+}
+
+.route {
+  color: blue
+}
+
+.not-used {
+  height: 20px
+}
+
+@media only screen and (max-width :600px) {
+  body {
+    width: 20px
+  }
+  .not-used {
+    width: 20px
+  }
+}
